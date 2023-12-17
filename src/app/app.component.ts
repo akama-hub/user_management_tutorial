@@ -3,6 +3,8 @@ import { SupabaseService } from './services/supabase.service'
 import { AccountComponent } from './account/account.component'
 import { AuthComponent } from './auth/auth.component'
 import { SharedModule } from './shared/shared.module' 
+import { SignUpComponent } from './sign-up/sign-up.component'
+import { AuthWithPasswordComponent } from './auth-with-password/auth-with-password.component'
 
 @Component({
   standalone: true,
@@ -12,7 +14,9 @@ import { SharedModule } from './shared/shared.module'
   imports: [
     AccountComponent,
     AuthComponent,
-    SharedModule
+    SharedModule,
+    SignUpComponent,
+    AuthWithPasswordComponent
   ]
 })
 
