@@ -20,7 +20,7 @@ export interface Profile {
   providedIn: 'root',
 })
 export class SupabaseService {
-  private supabase: SupabaseClient
+  public supabase: SupabaseClient
   _session: AuthSession | null = null
 
   constructor() {
@@ -63,7 +63,7 @@ export class SupabaseService {
       email,
       password,
       options: {
-        emailRedirectTo: 'https//example.com/welcome'
+        emailRedirectTo: 'localhost:4200'
       }
     })
   }

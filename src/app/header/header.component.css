@@ -1,0 +1,162 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    z-index: 1;
+    background-color: #060606;
+}
+
+/* .header1 .title {
+    padding-left: 5vw;
+    color: bisque;
+} */
+
+.header .title {
+    position: absolute;
+    top: 15px;
+    left: 45px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: .4rem;
+}
+
+.menu-btn {
+    /* 親要素（ハンバーガー）に対して固定位置 */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 35px;
+    width: 40px;
+    /* 中央揃え */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    padding-top: 5px;
+}
+
+/* 疑似要素 */
+.menu-btn span, .menu-btn span::before, .menu-btn span::after {
+    /* 中身を入れ替える。この場合はチェックボックスを空にする */
+    content: "";
+    display: block;
+    height: 3px;
+    width: 30px;
+    /* 先端を丸める */
+    border-radius: 3px;
+    background-color: rgb(255,255,255);
+    position: absolute;
+}
+
+/* 三本戦の一番上の線 */
+.menu-btn span::before {
+    bottom: 8px
+}
+
+/* 三本戦の一番下の線 */
+.menu-btn span::after {
+    top: 8px
+}
+
+
+/* idの時は#をつける */
+#menu-btn-check:checked + .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);
+    top: 25px;
+}
+
+#menu-btn-check:checked + .menu-btn span::before {
+    top: 7.5px;
+    -webkit-transition: .3s;
+        transition: .3s;
+    -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+#menu-btn-check:checked + .menu-btn span::after {
+    bottom: 7.5px;
+    -webkit-transition: .3s;
+        transition: .3s;
+    -webkit-transform: rotateZ(-45deg);
+        transform: rotateZ(-45deg);
+}
+
+#menu-btn-check {
+    display: none;
+}
+
+#menu-btn-check:checked + .menu-btn {
+    /* position: absolute; */
+    right: 0;
+    top: 0;
+    width: 75px;
+    height: 100%;
+    background-color: bisque;
+}
+
+.menu-content {
+    width: 80%;
+    height: 50%;
+    margin-left: 20%;
+    position: fixed;
+    top: 75px;
+    left: 100%;
+    z-index: 4;
+    background-color: bisque;
+}
+
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;
+}
+
+.menu-content ul {
+    padding-top: 10vh;
+}
+
+.menu-content ul li {
+    list-style: none;
+    padding-top: 3vh;
+}
+
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    color: rgb(255,255,255);
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu-content ul li a:hover {
+    background-color: #060606;
+}
+
+#menu-btn-check:checked ~ .menu-content ul li a:hover {
+    left: 0;
+}
+
+.item-content {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 520px) {
+    .item-title {
+        font-size: 20px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .item-content {
+        font-size: 16px;
+        margin-bottom: 3px;
+    }
+}

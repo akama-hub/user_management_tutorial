@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div>
+    <form [formGroup]="incomeForm" (ngSubmit)="onSubmit()">
+        <label for="income">収入: </label>
+        <input id="income" type="number" formControlName="income" value="0">
+
+        <label for="subIncome">事業所得: </label>
+        <input id="subIncome" type="number" formControlName="subIncome" value="0">
+
+        <label for="expenses">経費: </label>
+        <input id="expenses" type="number" formControlName="expenses" value="0">
+
+        <label for="deduction">控除額: </label>
+        <input id="deduction" type="number" formControlName="deduction" value="0">
+    </form>
+
+    <button type="submit" [disabled]="!incomeForm.valid" (click)="updateIncome()">Submit</button>
+    <button type="submit" [disabled]="!incomeForm.valid" (click)="incomeService.addIncome(incomeForm.value)">Add to supabase</button>
+</div>
